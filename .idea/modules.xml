@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/leertaak3Cards/leertaak3Cards.iml" filepath="$PROJECT_DIR$/leertaak3Cards/leertaak3Cards.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leertaak3DynamicProgramming/leertaak3DynamicProgramming.iml" filepath="$PROJECT_DIR$/leertaak3DynamicProgramming/leertaak3DynamicProgramming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leertaak3FileCompressie/leertaak3FileCompressie.iml" filepath="$PROJECT_DIR$/leertaak3FileCompressie/leertaak3FileCompressie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leertaak3TicTacToe/leertaak3TicTacToe.iml" filepath="$PROJECT_DIR$/leertaak3TicTacToe/leertaak3TicTacToe.iml" />
+    </modules>
+  </component>
+</project>
