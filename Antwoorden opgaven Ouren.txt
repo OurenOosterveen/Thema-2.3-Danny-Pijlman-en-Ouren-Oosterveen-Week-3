@@ -1,0 +1,6 @@
+7. 	Analyseer het probleem en de gegeven code. Bestudeer het minimax principe (http://en.wikipedia.org/wiki/Minimax).
+	Wat worden je nodes, je depth en de waarderingsfunctie?
+
+	Nodes hebben alle mogelijke zetten in zich, deze leiden tot: winnen, verliezen en gelijk spelen.
+	Depth is hoe diep je in de node zit, dus hoeveel stappen het duurt voor het hebt gewonnen.
+	Waardeeringsfunctie bevat of een bepaalde set stappen je het spel wint verliest of gelijk speelt.

@@ -3,8 +3,8 @@ package ttt;
 import java.util.Random;
 class TicTacToe
 {
-	private static final int HUMAN        = 2;
-	private static final int COMPUTER     = 1; 
+	protected  static final int HUMAN        = 2;
+	protected  static final int COMPUTER     = 1;
 	public  static final int EMPTY        = 0;
 
 	public  static final int HUMAN_WIN    = 0;
@@ -12,8 +12,7 @@ class TicTacToe
 	public  static final int UNCLEAR      = 2;
 	public  static final int COMPUTER_WIN = 3;
 
-	private int [ ] [ ] board = new int[ 3 ][ 3 ];
-    private int [][] bestpick = new int[3][3];
+	protected  int [ ] [ ] board = new int[ 3 ][ 3 ];
     private Random random=new Random();  
 	private int side= 1 + random.nextInt(2);
 	private int position=UNCLEAR;
@@ -22,7 +21,6 @@ class TicTacToe
     private int bestColumn = 0;
     private int depth = 0;
 	private int bestdepth = 20;
-	private int step = 0;
 	private char computerChar,humanChar;
 
 	// Constructor
@@ -71,7 +69,6 @@ class TicTacToe
     // Find optimal move || minimax
 	private Best chooseMove( int side ) {
 		depth++;
-		step++;
 		int opp;                // The other side
 		Best reply  ;  			// Opponent's best reply
 		int simpleEval;         // Result of an immediate evaluation
@@ -82,24 +79,31 @@ class TicTacToe
 			opp = COMPUTER;
 		}
 
+        // move through every square
 		for(int x = 0; x < board.length; x++){
 			for(int y = 0; y < board[0].length; y++){
 				if(squareIsEmpty(x,y)){
 					place(x, y, side);
 					reply = chooseMove(opp);
 					if((simpleEval = positionValue()) != UNCLEAR){
+
+                        // checks if the next move is a the best move for the computer
 						if(side == COMPUTER && reply.val >= simpleEval && reply.depth >= depth ){
 							value = simpleEval;
 							bestRow = x;
 							bestColumn = y;
 							bestdepth = depth;
 						}
+
+                        // checks if the next move is the best move for the human
 						if(side == HUMAN && reply.val <= simpleEval && reply.depth >= depth ){
 							value = simpleEval;
 							bestRow = x;
 							bestColumn = y;
 							bestdepth = depth;
 						}
+
+                        // checks if the current situation will end in a draw if the game is played perfectly
 						if( simpleEval == DRAW  && reply.depth >= depth ){
 							value = simpleEval;
 							bestRow = x;
@@ -135,9 +139,13 @@ class TicTacToe
 
 
 	// Simple supporting routines
-	private void clearBoard( )
+	protected void clearBoard( )
 	{
-		//TODO:
+		for(int x = 0; x < board.length; x++) {
+			for (int y = 0; y < board[0].length; y++) {
+				board[x][y] = EMPTY;
+			}
+		}
 	}
 
 
@@ -197,7 +205,7 @@ class TicTacToe
 	}
 
 	// Compute static value of current position (win, draw, etc.)
-	private int positionValue( )
+	protected int positionValue( )
 	{
         if(isAWin(HUMAN)) {
             return HUMAN_WIN;
